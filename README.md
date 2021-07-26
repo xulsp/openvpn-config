@@ -99,6 +99,8 @@ vi old
 #old文件中填入内容
 ifconfig-push 10.8.0.6 255.255.255.0
 
+#记得需要重启  server
+systemctl restart openvpn@server
 
 #生成客户端证书
 cd /usr/share/easy-rsa/
