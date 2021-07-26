@@ -47,6 +47,8 @@ cert keys/server.crt
 key keys/server.key
 
 dh keys/dh2048.pem
+topology subnet
+client-to-client
 
 # ccd是一个目录用于指定静态ip,不需要的话可以不要这一行
 client-config-dir ccd
