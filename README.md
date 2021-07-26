@@ -1,4 +1,3 @@
-# openvpn-config
 
 ## 服务端配置
 ```bash
@@ -113,10 +112,10 @@ cd /usr/share/doc/openvpn/examples/sample-config-files/
 cp client.conf ~/openvpn-client/client.ovpn
 # 编辑配置，内容如下
 cd ~/openvpn-client/
-vi client.ovpn
 ```
-
+### vi client.ovpn
 ```
+# client.opvn配置内网
 # 这里表示是客户端
 client
 
@@ -164,4 +163,3 @@ openvpn --cd /opt/openvpn-client --daemon --config client.ovpn
 ping 10.8.0.1
 # ifconfig 查看是否生成以10.8开头的网卡
 ```
-
