@@ -106,6 +106,7 @@ source ./vars
 mkdir -p ~/openvpn-client
 # 拷贝证书
 cp ./keys/old.* ~/openvpn-client/
+cp /etc/openvpn/ta.key ~/openvpn-client/
 
 # 拷贝配置
 cd /usr/share/doc/openvpn/examples/sample-config-files/
