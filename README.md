@@ -168,3 +168,43 @@ openvpn --cd /opt/openvpn-client --daemon --config client.ovpn
 ping 10.8.0.1
 # ifconfig 查看是否生成以10.8开头的网卡
 ```
+
+
+
+
+
+混淆流量
+```
+openssl req -new -x509 -days 3650 -nodes -out stunnel.pem -keyout stunnel.pem
+chmod 600 /etc/stunnel/stunnel.pem
+setuid=nobody
+setgid=nogroup
+pid=/var/run/stunnel/stunnel.pid
+output=/var/log/stunnel.log
+client=no
+[openvpn]
+accept=4433
+connect=127.0.0.1:27017
+cert=/etc/stunnel/stunnel.pem
+
+# 客户端
+setuid=nobody
+setgid=nogroup
+pid=/var/run/stunnel/stunnel.pid
+output=/var/log/stunnel.log
+client = yes
+
+[openvpn]
+accept=127.0.0.1:7788
+connect=43.132.251.225:4433
+cert = /etc/stunnel/stunnel.pem
+
+touch /var/log/stunnel.log
+mkdir -p /var/run/stunnel
+chown -R nobody:nogroup /var/run/stunnel
+chown -R nobody:nogroup /var/log/stunnel.log
+chown -R nobody:nogroup /etc/stunnel/
+
+systemctl start stunnel4.service
+
+```
