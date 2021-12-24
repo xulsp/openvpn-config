@@ -196,7 +196,7 @@ client = yes
 
 [openvpn]
 accept=127.0.0.1:7788
-connect=43.132.251.225:4433
+connect=43.123.221.21:4433
 cert = /etc/stunnel/stunnel.pem
 
 touch /var/log/stunnel.log
